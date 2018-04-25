@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>es.uned.nlp.evall.evallweb</groupId>
+        <artifactId>evallweb-base</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>browseRepository-evallweb-portlet</artifactId>
+    <packaging>war</packaging>
+    <name>Browse Repository EvallWeb portlet</name>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>templates/*</include>
+                    <include>**/*.xml</include>
+                    <include>*.xml</include>
+                    <include>portlet.properties</include>
+                    <include>resource-actions/*.xml</include>
+                </includes>
+                <excludes>
+                    <!-- exclude>**/native.*</exclude -->
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>com.liferay.maven.plugins</groupId>
+                <artifactId>liferay-maven-plugin</artifactId>
+                <version>${liferay.maven.plugin.version}</version>
+                <configuration>
+                    <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+                    <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
+					<appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
+					<appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
+                    <liferayVersion>${liferay.version}</liferayVersion>
+                    <pluginType>portlet</pluginType>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${org.apache.maven.plugins}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <version>2.9</version>
+	            <configuration>
+	                <useFile>false</useFile>
+	            </configuration>
+	        </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- Project Dependencies -->
+        <dependency>
+            <groupId>es.uned.nlp.evall.evallweb</groupId>
+            <artifactId>portlet-core</artifactId>
+        </dependency>
+
+        <!-- Liferay Dependencies -->
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-service</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>util-bridges</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>util-taglib</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>util-java</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Spring Framework Dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.5</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc-portlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        
+        <!-- J2EE Dependencies -->
+        <dependency>
+            <groupId>javax.portlet</groupId>
+            <artifactId>portlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
+        <!-- LOGS  -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+        </dependency>
+
+        <!-- TAGLIBS  -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!-- BEANUTILS -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- OTHERS -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-core</artifactId>
+		</dependency>
+
+        <!-- Mockito + PowerMock-->
+        <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>1.9.5</version>
+        </dependency>
+        <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+        </dependency>
+        <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito</artifactId>
+        </dependency>
+
+		<!-- Web Services EvallWeb -->
+        <dependency>
+			<groupId>es.uned.nlp.evall.evallweb</groupId>
+			<artifactId>database-util-portlet-service</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+    </dependencies>
+</project>

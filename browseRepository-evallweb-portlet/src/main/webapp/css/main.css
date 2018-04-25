@@ -1,0 +1,114 @@
+.section[data-anchor="output"] .slide[data-anchor="output_list"] .fileTable {
+    margin-bottom: 0vh!important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure .ui-selectmenu-button .ui-selectmenu-text {
+	text-align: center;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table {
+	width: 90% !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure {
+	height: 3.5vh;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure.notshown {
+	width: 0% !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure div.select_measure {
+    display: inline-table;
+    vertical-align: middle;
+    height: 100%;
+    padding-right: 1vw;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure div.sort {
+    margin-left: -1vw;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure div.select_measure span.ui-selectmenu-button span.ui-selectmenu-text {
+    color: white;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table th.measure div.select_measure span.ui-selectmenu-button span.ui-icon {
+    background-image: url("../img/select-white-icon.png") !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table td.measure {
+	vertical-align: middle !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] table td.measure.bold {
+	font-weight: bold;
+	color: black;
+	font-family: serif;
+	font-size: 1.1vw;
+}
+
+#fullpage .section.evaluation[data-anchor="benchmark"] .popupDiv p {
+    font-size: 1.5em;
+    color: white;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="output_list"] a.excel_export {
+	float: right;
+	margin-right: 10% !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"] .table_description table {
+	padding: 1vh !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"] .table_description table td {
+	padding: 0.5vh !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"] .table_description table td.left {
+	border-left-color: black !important;
+    border-left-width: thin;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"] .table_description table td.measures {
+	vertical-align: middle !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"]  .table_description td.authors {
+	width: 55% !important;
+}
+
+.section[data-anchor="output"] .slide[data-anchor="description"] .table_description table td.measureNames {
+	border-bottom-color: black !important;
+    border-bottom-width: thin;
+}
+
+#pop {
+   z-index:2;
+   position:absolute;
+   width: 30vw;
+   height: 25vh;
+   top: 50%;
+   left: 50%;
+   display: none;
+}
+
+#pop #popFrame {
+   position:absolute;
+   border: 1px solid #333;
+   text-align: center;
+   background-color: rgb(224, 231, 115);
+   top: -35%;
+   left: -50%;
+   width: 25vw;
+   height: 15vh;
+   padding: 8vh 4vw;
+}
+
+#pop #popFrame p.warning {
+    margin-bottom: 15%;
+    font-size: 0.85vw;
+    color: red;
+    margin-top: 2%;
+}
